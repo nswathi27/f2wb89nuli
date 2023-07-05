@@ -13,10 +13,46 @@ block content
     p Columns is out of range 
   else 
     table#outer
+     -for(let i=0;i<rows;i++) {
+        tr#middle 
+        <br>
+          - for(let k=0;k<cols;k++) {
+              - if(i==k) {
+                td=1
+              - }
+              - else if(i<k) {
+                  td=0
+              - }
+              - else {
+                td=(k-i+1)
+              - }
+          - }
+    - }
+
+
+
+
+
+
+
+
+
+
+
+
+
     - for(let i=0; i<rows; i++) {
       tr#middle
       <br>
         - for(let k=0;k<col;k++) {
-          td= (1 + i + (k*rows))+"  "
-        -}
-    -}
+          - if(i==k) {
+            td=1
+          - }
+          - else if(i>k) {
+            td=0
+          - }
+          - else {
+            td=(k-i+1)  
+          - }
+        - }
+      - }
